@@ -1,1 +1,9 @@
-<p>cars works!</p>
+<div class="container">
+    <div class="row" *ngFor="let car of cars">
+        <div class="col-xs-12">
+            <a href="#">
+                <p>BARVA: {{car.color}}</p>
+            </a>
+        </div>
+    </div>
+</div>
