@@ -1,4 +1,8 @@
-<h2>Owners List <span><button class="btn btn-success" (click)="addOwner()">AddNew</button> {{' '}} <button class="btn btn-primary" (click)="getOwners()">Refresh</button></span></h2>
+<h2>Owners List <span>
+    <button class="btn btn-success" (click)="addOwner()">AddNew</button>
+    <button class="btn btn-primary" (click)="getOwners()">Refresh</button>
+    <button class="btn btn-danger" (click)="deleteOwner(5)">Delete owner 5</button></span>
+</h2>
 <div class="container">
     <div class="row" *ngFor="let owner of owners; let i = index">
         <div class="col-xs-12" style="border: 1px solid green;">

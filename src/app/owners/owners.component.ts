@@ -30,5 +30,12 @@ export class OwnersComponent implements OnInit {
     });
   }
 
+  public deleteOwner(id: number){
+    this.ownerService.deleteOwner(id).subscribe({
+      next: respond => console.log(respond),
+      complete: () => this.getOwners()
+    });
+  }
+
 
 }

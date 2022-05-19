@@ -14,7 +14,11 @@ export class OwnersService{
     }
 
     getOwner(id: number){
-        return this.http.get<Owner>(this.apiServerUrl + 'owners/id');
+        return this.http.get<Owner>(this.apiServerUrl + `/owners/${id}`);
+    }
+
+    deleteOwner(id: number){
+        return this.http.delete<boolean>(this.apiServerUrl + `/owners/${id}`);
     }
 
     addOwner(newOwner: Owner){
