@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Owner } from './owner';
 import { OwnersService } from './owners.service';
 
@@ -9,7 +10,7 @@ import { OwnersService } from './owners.service';
   styleUrls: ['./owners.component.css']
 })
 export class OwnersComponent implements OnInit {
-  constructor(private ownerService: OwnersService){}
+  constructor(private ownerService: OwnersService, private router: Router){}
 
   owners: Owner[];
 
@@ -35,6 +36,10 @@ export class OwnersComponent implements OnInit {
       next: respond => console.log(respond),
       complete: () => this.getOwners()
     });
+  }
+
+  loadOwner(id: number){
+    this.router.navigate(['/owners', id, 'edit']);
   }
 
 
