@@ -1,6 +1,11 @@
 <h2>Owner {{ owner.id }}</h2>
 <p><span style="color: red;"> {{ owner.surname }} {{ owner.name }}</span></p>
-<p>Some other info there...</p>
+<p>Informace o userovi <br>. <br>.</p>
 <hr>
 <hr>
 <a [routerLink]="['/owners', 10]">Test zmeny cisla</a>
+<br>
+<span>
+    <button class="btn btn-warning" (click)="onEdit()">Edit</button>
+    <button class="btn btn-danger">Delete</button>
+</span>

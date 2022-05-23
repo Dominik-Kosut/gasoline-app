@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Owner } from '../owner';
 
@@ -10,7 +10,8 @@ import { Owner } from '../owner';
 })
 export class OwnerComponent implements OnInit, OnDestroy{
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   owner: Owner;
   paramsSubscription: Subscription;
@@ -33,6 +34,10 @@ export class OwnerComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.paramsSubscription.unsubscribe();
+  }
+
+  onEdit(){
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }

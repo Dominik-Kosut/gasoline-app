@@ -5,11 +5,13 @@
 </h2>
 <div class="container">
     <div class="row">
+
         <div class="col-xs-4" style="border: 1px solid green;">
             <div class="list-group">
                 <div *ngFor="let owner of owners; let i = index">
                     <a href="#"
-                    class="list-group-item">
+                    class="list-group-item"
+                    [routerLink]="['/owners', owner.id]">
                     <h4>Name: {{owner.name}} {{owner.surname}}</h4>
                     <span>Email: {{owner.email}}</span>
                     <p>Age: {{owner.age}}</p>
@@ -17,19 +19,10 @@
                     <button class="btn btn-warning" (click)="loadOwner(owner.id)">Edit</button>
                 </div>
             </div>
+        </div>
 
-            <!-- <div class="row">
-                <div class="col-xs-12" style="border: 1px solid rgb(0, 34, 128);">
-
-                    <button class="btn btn-default">
-                        <h4>Name: {{owner.name}} {{owner.surname}}</h4>
-                        <span>Email: {{owner.email}}</span>
-                        <p>Age: {{owner.age}}</p>
-                    </button>
-                
-
-                </div>
-            </div> -->
+        <div class="col-xs-4">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
