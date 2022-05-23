@@ -38,9 +38,10 @@ export class OwnersComponent implements OnInit {
     });
   }
 
-  loadOwner(id: number){
-    this.router.navigate(['/owners', id, 'edit']);
-  }
+  // Test
+  // loadOwner(id: number){
+  //   this.router.navigate(['/owners', id, 'edit']);
+  // }
 
 
 }

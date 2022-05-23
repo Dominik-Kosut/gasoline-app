@@ -9,14 +9,20 @@
         <div class="col-xs-4" style="border: 1px solid green;">
             <div class="list-group">
                 <div *ngFor="let owner of owners; let i = index">
-                    <a href="#"
-                    class="list-group-item"
+                    <a
+                    class="list-group-item clearfix"
                     [routerLink]="['/owners', owner.id]">
-                    <h4>Name: {{owner.name}} {{owner.surname}}</h4>
-                    <span>Email: {{owner.email}}</span>
-                    <p>Age: {{owner.age}}</p>
+                    <div class="pull-left">
+                        <h4 class="list-goup-item-heading">Name: {{owner.name}} {{owner.surname}}</h4>
+                        <p class="list-goup-item-text">Email: {{owner.email}}</p>
+                        <p class="list-goup-item-text">Age: {{owner.age}}</p>
+                    </div>
+                    <span class="pull-right">
+                        <img src="https://icons-for-free.com/download-icon-man+person+profile+user+worker+icon-1320190557331309792_512.png"
+                             class="img-responsive"
+                             style="max-height: 100px;">
+                    </span>
                     </a>
-                    <button class="btn btn-warning" (click)="loadOwner(owner.id)">Edit</button>
                 </div>
             </div>
         </div>
