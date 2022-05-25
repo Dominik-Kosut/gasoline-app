@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Owner } from '../owner';
+import { OwnersService } from '../owners.service';
 
 @Component({
   selector: 'app-owner',
@@ -11,24 +12,21 @@ import { Owner } from '../owner';
 export class OwnerComponent implements OnInit, OnDestroy{
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private ownersService: OwnersService) { }
 
-  owner: Owner;
+  owner: Owner = <Owner>{};
   paramsSubscription: Subscription;
 
   ngOnInit(): void {
-    this.owner = {
-      id: this.route.snapshot.params['id'],
-      name: null,
-      surname: null,
-      email: null,
-      age: null
-    };
+    this.getOwnerByID(+this.route.snapshot.params['id']);
 
     this.paramsSubscription = this.route.params.subscribe({
       next: (params: Params) => {
-        this.owner.id = params['id'];
-      }
+        this.getOwnerByID(+params['id']);
+        console.log(params);
+      },
+      error: err => console.log(err)
     });
   }
 
@@ -38,6 +36,24 @@ export class OwnerComponent implements OnInit, OnDestroy{
 
   onEdit(){
     this.router.navigate(['edit'], {relativeTo: this.route});
+  }
+
+  onDelete(){
+    this.ownersService.deleteOwner(this.owner.id).subscribe({
+      next: respond => console.log(respond),
+      complete: () => {
+        this.ownersService.ownersChange.next(null)
+        this.router.navigate(['owners']);
+      }
+    });
+  }
+
+  private getOwnerByID(id: number){
+    this.ownersService.getOwner(+this.route.snapshot.params['id']).subscribe({
+      next: (response: Owner) => {
+        this.owner = response;
+      }
+    });
   }
 
 }

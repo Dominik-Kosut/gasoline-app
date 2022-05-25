@@ -1,11 +1,18 @@
-<h2>Owner {{ owner.id }}</h2>
-<p><span style="color: red;"> {{ owner.surname }} {{ owner.name }}</span></p>
-<p>Informace o userovi <br>. <br>.</p>
-<hr>
-<hr>
+<h2>Owner information</h2>
+<h3 style="color: red;"> {{ owner.surname }} {{ owner.name }}</h3>
+<p>Email: {{ owner.email }}</p>
+<p>Age: {{ owner.age }}</p>
+<br><br>
 <a [routerLink]="['/owners', 10]">Test zmeny cisla</a>
 <br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Number of cars: </h4>
+        </div>
+    </div>
+</div>
 <span>
     <button class="btn btn-warning" (click)="onEdit()">Edit</button>
-    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
 </span>
