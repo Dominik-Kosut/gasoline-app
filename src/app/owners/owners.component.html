@@ -10,6 +10,7 @@
             <div class="list-group">
                 <div *ngFor="let owner of owners; let i = index">
                     <a
+                    routerLinkActive="active"
                     class="list-group-item clearfix"
                     [routerLink]="['/owners', owner.id]">
                     <div class="pull-left">

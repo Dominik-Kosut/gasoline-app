@@ -11,6 +11,7 @@ import { OwnerComponent } from './owners/owner/owner.component';
 import { EditOwnerComponent } from './owners/edit-owner/edit-owner.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     DetailsComponent,
     OwnerComponent,
     EditOwnerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    WelcomeComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { Routes, RouterModule} from "@angular/router";
 import { CarsComponent } from "./cars/cars.component";
 import { DetailsComponent } from "./details/details.component";
@@ -6,8 +6,10 @@ import { EditOwnerComponent } from "./owners/edit-owner/edit-owner.component";
 import { OwnerComponent } from "./owners/owner/owner.component";
 import { OwnersComponent } from "./owners/owners.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 const appRoutes: Routes = [
+    {path: '', component: WelcomeComponent},
     {path: 'owners', component: OwnersComponent, children: [
       {path: ':id', component: OwnerComponent},
       {path: ':id/edit', component: EditOwnerComponent}
